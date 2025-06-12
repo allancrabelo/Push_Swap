@@ -6,7 +6,7 @@
 /*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 16:02:15 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/06/11 15:37:41 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/06/12 18:18:33 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdbool.h>
+#include <limits.h>
 
 typedef struct s_stack_node
 {
@@ -33,8 +34,18 @@ typedef struct s_stack_node
 
 //Handle Errors
 int	ft_error(int error);
+void	error(t_stack_node **stack);
+void	free_stack(t_stack_node **stack);
+int	duplicate_check(t_stack_node *stack, int n);
+int	syntax_error(char *nbr);
 
 //Others
 char	**split(char *string, char character);
+long	ft_atol(char *str);
 
+
+void	init_stack_a (t_stack_node **a, char **argv);
+void	append_node(t_stack_node **stack, int n);
+
+t_stack_node	*find_last(t_stack_node *stack);
 #endif
