@@ -33,14 +33,13 @@ typedef struct s_stack_node
 }	t_stack_node;
 
 //Handle Errors
-int	ft_error(int error);
 void	error(t_stack_node **stack);
 void	free_stack(t_stack_node **stack);
 int	duplicate_check(t_stack_node *stack, int n);
 int	syntax_error(char *nbr);
 
 //Others
-char	**split(char *string, char character);
+char	**ft_split(char *string, char character);
 long	ft_atol(char *str);
 
 

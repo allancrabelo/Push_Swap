@@ -18,7 +18,7 @@ void	append_node(t_stack_node **stack, int n)//quero anexar um node no fim da st
 	t_stack_node	*last_node;
 	
 	if(!stack)
-		return;
+		return ;
 	node = malloc(sizeof(t_stack_node));
 	if(!node)
 		return ;
@@ -50,7 +50,8 @@ void	init_stack_a (t_stack_node **a, char **argv)
 		n = ft_atol(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)
 			error (a);
-		if (duplicate_check(*a, (int)n));
+		if (duplicate_check(*a, (int)n))
+			error (a);
 		append_node(a, (int)n);
 		i++;
 	}	

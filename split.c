@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   split.c                                            :+:      :+:    :+:   */
+/*   ft_split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -58,7 +58,7 @@ static char	*get_next_word(char *s, char c)
 	return (next_word);
 }
 
-char	**split(char *s, char c)
+char	**ft_split(char *s, char c)
 {
 	int words_count;
 	char **result_array;

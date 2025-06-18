@@ -15,13 +15,13 @@
 //filtro: string vazia, apenas sinal, nao numericos, espaco no meio do numero, multiplo sinal, fora dos limites
 int	syntax_error(char *nbr)
 {
-		if (!(*nbr >= '0' && *nbr <= '9') || (!(*nbr == '-' || *nbr == '+')))
+		if (!((*nbr >= '0' && *nbr <= '9') || (!(*nbr == '-' || *nbr == '+'))))
 			return (1);
 		if ((*nbr == '-' || *nbr == '+') && !(nbr[1] >= '0' && nbr[1] <= '9'))
 			return (1);
 		while (*++nbr)
 		{
-			if (!(*nbr >= '0' && *nbr <= '9'));
+			if (!(*nbr >= '0' && *nbr <= '9'))
 				return (1);
 		}
 		return (0);
@@ -53,11 +53,6 @@ void	free_stack(t_stack_node **stack)
 	}
 }
 
-int	ft_error(int error)
-{
-	write (1, "Error\n", 6);//tem de retornar isto em caso de erro
-	return (1);
-}
 void	error(t_stack_node **stack)
 {
 	free_stack(stack);

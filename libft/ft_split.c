@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -44,15 +44,15 @@ static int	ft_occurence(char const *s, char c)
 	return (word_count);
 }
 
-static void	*ft_free(char **splitted_s, size_t i)
+static void	*ft_free(char **ft_splitted_s, size_t i)
 {
 	while (i--)
-		free(splitted_s[i]);
-	free(splitted_s);
+		free(ft_splitted_s[i]);
+	free(ft_splitted_s);
 	return (NULL);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_ft_split(char const *s, char c)
 {
 	char	**res;
 	size_t	len;
@@ -87,7 +87,7 @@ char	**ft_split(char const *s, char c)
 	char *str1 = "42 School Porto";
 	char delimiter1 = ' ';
 	printf("Test 1: \"%s\" (delimiter: '%c')\n", str1, delimiter1);
-	result = ft_split(str1, delimiter1);
+	result = ft_ft_split(str1, delimiter1);
 	i = 0;
 	while (result[i])
 	{
@@ -102,7 +102,7 @@ char	**ft_split(char const *s, char c)
 	char *str2 = "42           School     Porto";
 	char delimiter2 = ' ';
 	printf("Test 2: \"%s\" (delimiter: '%c')\n", str2, delimiter2);
-	result = ft_split(str2, delimiter2);
+	result = ft_ft_split(str2, delimiter2);
 	i = 0;
 	while (result[i])
 	{
@@ -116,7 +116,7 @@ char	**ft_split(char const *s, char c)
 	char *str3 = "---42--School---Porto---";
 	char delimiter3 = '-';
 	printf("Test 3: \"%s\" (delimiter: '%c')\n", str3, delimiter3);
-	result = ft_split(str3, delimiter3);
+	result = ft_ft_split(str3, delimiter3);
 	i = 0;
 	while (result[i])
 	{
@@ -130,7 +130,7 @@ char	**ft_split(char const *s, char c)
 	char *str4 = "";
 	char delimiter4 = ' ';
 	printf("Test 4: \"%s\" (delimiter: '%c')\n", str4, delimiter4);
-	result = ft_split(str4, delimiter4);
+	result = ft_ft_split(str4, delimiter4);
 	if (!result[0])
 		printf("Result: (Empty String)\n");
 	free(result);
@@ -139,7 +139,7 @@ char	**ft_split(char const *s, char c)
 	char *str5 = ";;;;;;;";
 	char delimiter5 = ';';
 	printf("Test 5: \"%s\" (delimiter: '%c')\n", str5, delimiter5);
-	result = ft_split(str5, delimiter5);
+	result = ft_ft_split(str5, delimiter5);
 	if (!result[0])
 		printf("Result: (No words found)\n");
 	free(result);
