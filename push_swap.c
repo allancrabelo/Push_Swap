@@ -6,7 +6,7 @@
 /*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 16:18:45 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/06/13 18:15:58 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/06/19 17:17:21 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	//tenho de validar se o que entra como argumento
 	//./push_swap && ./push_swap ""
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		error(NULL);
+		return (1);
 	//preciso tratar o caso de que ele entre com forma de arg unico
 	else if (argc == 2) 
 		argv = ft_split(argv[1], ' ');
@@ -42,6 +42,5 @@ int	main(int argc, char **argv)
 		printf("%d\n", temp->nbr);
 		temp = temp->next;
 	}
-
 	return (0);
 }
