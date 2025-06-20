@@ -1,57 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/19 15:32:30 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/06/20 18:14:31 by aaugusto         ###   ########.fr       */
+/*   Created: 2025/06/20 16:57:29 by aaugusto          #+#    #+#             */
+/*   Updated: 2025/06/20 18:14:01 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-// Swap: trocar os dois primeiros elementos do topo da pilha
 
-void	swap(t_stack_node **stack)
+void	rev_rotate(t_stack_node **stack)
 {
-	t_stack_node	*first;
-	t_stack_node	*second;
+	t_stack_node	*last;
+	t_stack_node	*before_last;
 
 	if (!*stack || !(*stack)->next)
 		return ;
-	
-	first = *stack;
-	second = first->next;
-	first->next = second->next;
-	if (second->next)
-		second->next->prev = first;
-	second->next = first;
-	second->prev = NULL;
-	first->prev = second;
+	last = find_last(*stack);
+	before_last = last->prev;
+	before_last->next = NULL;
+	last->next = *stack;
+	(*stack)->prev = last;
 
-	*stack = second;
+	last->prev = NULL;
+	*stack = last;
 }
-
-void	sa(t_stack_node **a)
+void	rra(t_stack_node **a)
 {
 	if (stack_len(*a) < 2)
-		return ;
-	swap(a);
-	write(1, "sa\n", 4);
+		return;
+	rev_rotate(a);
+	write(1, "rra\n", 5);
 }
-void	sb(t_stack_node **b)
+void	rrb(t_stack_node **b)
 {
 	if (stack_len(*b) < 2)
 		return ;
-	swap(b);
-	write(1, "sb\n", 4);
+	rev_rotate(b);
+	write(1, "rrb\n", 5);
 }
-void	ss(t_stack_node **a, t_stack_node **b)
+void	rrr(t_stack_node **a, t_stack_node **b)
 {
 	if (stack_len(*a) < 2 && stack_len(*b) < 2)
 		return ;
-	swap(a);
-	swap(b);
-	write(1, "ss\n", 4);
+	rev_rotate(a);
+	rev_rotate(b);
+	write(1, "rrr\n", 5);
 }

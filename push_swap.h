@@ -6,14 +6,13 @@
 /*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 16:02:15 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/06/19 16:30:22 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/06/20 18:42:27 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "./libft/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdbool.h>
@@ -31,6 +30,29 @@ typedef struct	s_stack_node
 	struct s_stack_node	*target;
 
 }	t_stack_node;
+
+//Moviments
+void	sa(t_stack_node **a);
+void	sb(t_stack_node **b);
+void	ss(t_stack_node **a, t_stack_node **b);
+void	ra(t_stack_node **a);
+void	rb(t_stack_node **b);
+void	rr(t_stack_node **a, t_stack_node **b);
+void	rra(t_stack_node **a);
+void	rrr(t_stack_node **a, t_stack_node **b);
+void	pa(t_stack_node **a, t_stack_node **b);
+void	pb(t_stack_node **b, t_stack_node **a);
+
+
+//Algorithm
+void	sort_three(t_stack_node **a);
+
+//Utils
+bool			sorted(t_stack_node *stack);
+int				stack_len(t_stack_node *stack);
+t_stack_node	*find_last(t_stack_node *stack);
+t_stack_node	*find_max(t_stack_node **stack);
+t_stack_node	*find_min(t_stack_node **stack);
 
 //Handle Errors
 void	error(t_stack_node **stack);

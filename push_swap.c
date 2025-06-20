@@ -6,7 +6,7 @@
 /*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 16:18:45 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/06/19 17:17:21 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/06/20 18:38:48 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,18 @@ int	main(int argc, char **argv)
 	else if (argc == 2) 
 		argv = ft_split(argv[1], ' ');
 	init_stack_a(&a, argv + 1);
-	int i = 1;
-	while (argv[i])
+	if(!sorted(a))
 	{
-		printf("argv[%d] = '%s'\n", i, argv[i]);
-		i++;
-	}
-
-	temp = a;
-	while (temp)
-	{
-		printf("%d\n", temp->nbr);
-		temp = temp->next;
-	}
+		if (stack_len(a) == 2)
+			sa(&a);
+		else if (stack_len(a) == 3)
+			sort_three(&a);
+/* 		else if (stack_len(a) == 4)
+			sort_four(&a);
+		else if (stack_len(a) == 5)
+			sort_five(&a);
+		else
+			sort_stacks(&a, &b);
+	} */
 	return (0);
 }

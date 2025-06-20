@@ -6,7 +6,7 @@
 /*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 17:05:04 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/06/19 17:21:54 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/06/20 18:14:22 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,40 @@
 
 void	rotate(t_stack_node **stack)
 {
-	if (!stack || !(*stack))
+	t_stack_node	*first;
+	t_stack_node	*last;
+
+	if (!*stack || !(*stack)->next)
 		return ;
-	*stack = (*stack)->next;
-	(*stack)->prev->prev = *stack;
-	return ;
+	first = *stack;
+	last = find_last(*stack);
+	
+	*stack = first->next;
+	(*stack)->prev = NULL;
+	last->next = first;
+	first->prev = last;
+	first->next = NULL;
 }
 
-top -> 1 -> 2 -> 3
-
-top -> 2 
+void	ra(t_stack_node **a)
+{
+	if (stack_len(*a) < 2)
+		return ;
+	rotate(a);
+	write(1, "ra\n", 4);
+}
+void	rb(t_stack_node **b)
+{
+	if (stack_len(*b) < 2)
+		return ;
+	rotate(b);
+	write(1, "rb\n", 4);
+}
+void	rr(t_stack_node **a, t_stack_node **b)
+{
+	if (stack_len(*a) < 2 && stack_len(*b) < 2)
+		return ;
+	rotate(a);
+	rotate(b);
+	write(1, "rr\n", 4);
+}

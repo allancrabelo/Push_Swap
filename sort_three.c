@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/28 17:18:08 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/02/28 17:24:35 by aaugusto         ###   ########.fr       */
+/*   Created: 2025/06/20 18:31:48 by aaugusto          #+#    #+#             */
+/*   Updated: 2025/06/20 18:38:17 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_putendl_fd(char *s, int fd)
+void	sort_three(t_stack_node **a)
 {
-	write(fd, s, ft_strlen(s));
-	write(fd, "\n", 1);
+	t_stack_node	*biggest_node;
+
+	biggest_node = find_max(*a);
+
+	if (biggest_node == *a)
+		ra(a);
+	else if ((*a)->next == biggest_node)
+		rra(a);
+	if ((*a)->nbr > (*a)->next->nbr)
+		sa(a);
 }
-/* int	main(void)
-{
-	ft_putendl_fd("42", 1);
-	ft_putendl_fd("is", 1);
-	ft_putendl_fd("cool", 1);
-	return (0);
-} */
