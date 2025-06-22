@@ -6,7 +6,7 @@
 /*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 15:56:18 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/06/12 18:20:01 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/06/22 17:14:06 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	append_node(t_stack_node **stack, int n)//quero anexar um node no fim da st
 	}
 }
 
-void	init_stack_a (t_stack_node **a, char **argv)
+void	init_stack_a(t_stack_node **a, char **argv)
 {
 	long	n;//aparentemente so 'e assim por causa de um bit a mais nos limites do int
 	int		i;
@@ -55,4 +55,38 @@ void	init_stack_a (t_stack_node **a, char **argv)
 		append_node(a, (int)n);
 		i++;
 	}	
+}
+
+t_stack_node	*get_cheapest(t_stack_node *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack)
+	{
+		if (stack->cheapest)
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);
+}
+
+void	move_to_top(t_stack_node **stack, t_stack_node *node_for_top, char stack_name)
+{
+	while (*stack != node_for_top)
+	{
+		if (stack_name == 'a')
+		{
+			if (node_for_top->above_median)
+				ra(stack);
+			else
+				rra(stack);
+		}
+		else if (stack_name == 'b')
+		{
+			if (node_for_top->above_median)
+				rb(stack);
+			else
+				rrb(stack);
+		}
+	}
 }

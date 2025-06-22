@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_three.c                                       :+:      :+:    :+:   */
+/*   sort_five.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/20 18:31:48 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/06/22 18:34:19 by aaugusto         ###   ########.fr       */
+/*   Created: 2025/06/21 15:27:45 by aaugusto          #+#    #+#             */
+/*   Updated: 2025/06/22 16:54:00 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three(t_stack_node **a)
+void	sort_five(t_stack_node **a, t_stack_node **b)
 {
-	t_stack_node	*biggest_node;
+	t_stack_node	*min_node;
 
-	biggest_node = find_max(a);
-
-	if (biggest_node == *a)
+	if (!a || !*a)
+		return ;
+	min_node = find_min(*a);
+	while(*a != min_node)
 		ra(a);
-	else if ((*a)->next == biggest_node)
-		rra(a);
+	pb(b, a);
+	min_node = find_min(*a);
+	while(*a != min_node)
+		ra(a);
+	pb(b, a);
+	sort_three(a);
+	pa(a, b);
+	if ((*a)->nbr > (*a)->next->nbr)
+		sa(a);
+	pa(a,b);
 	if ((*a)->nbr > (*a)->next->nbr)
 		sa(a);
 }

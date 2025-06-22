@@ -6,7 +6,7 @@
 /*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 17:05:04 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/06/20 18:14:22 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/06/21 15:01:01 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ void	ra(t_stack_node **a)
 	if (stack_len(*a) < 2)
 		return ;
 	rotate(a);
-	write(1, "ra\n", 4);
+	write(1, "ra\n", 3);
 }
 void	rb(t_stack_node **b)
 {
 	if (stack_len(*b) < 2)
 		return ;
 	rotate(b);
-	write(1, "rb\n", 4);
+	write(1, "rb\n", 3);
 }
 void	rr(t_stack_node **a, t_stack_node **b)
 {
@@ -49,5 +49,5 @@ void	rr(t_stack_node **a, t_stack_node **b)
 		return ;
 	rotate(a);
 	rotate(b);
-	write(1, "rr\n", 4);
+	write(1, "rr\n", 3);
 }

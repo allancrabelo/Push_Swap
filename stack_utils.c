@@ -6,7 +6,7 @@
 /*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 18:04:21 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/06/20 18:42:20 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/06/22 18:30:50 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,36 +49,42 @@ t_stack_node	*find_last(t_stack_node *stack)
 	return (stack);
 }
 
-t_stack_node	*find_min(t_stack_node **stack)
+t_stack_node	*find_min(t_stack_node *stack)
 {
-	t_stack_node	*min;
-	t_stack_node	*node;
+	long			min;
+	t_stack_node	*min_node;
 	
-	min = *stack;
-	node = *stack;
-	
-	while (node)
+	if (!stack)
+		return (NULL);
+	min = LONG_MAX;
+	while (stack)
 	{
-		if (min->nbr > node->nbr)
-			min = node;
-		node = node->next;
+		if (stack->nbr < min)
+		{
+			min = stack->nbr;
+			min_node = stack;
+		}
+		stack = stack->next;
 	}
-	return (min);
+	return (min_node);
 }
 
-t_stack_node	*find_max(t_stack_node **stack)
+t_stack_node	*find_max(t_stack_node *stack)
 {
-	t_stack_node	*max;
-	t_stack_node	*node;
-	
-	max = *stack;
-	node = *stack;
-	
-	while (node)
+	long			max;
+	t_stack_node	*max_node;
+
+	if (!stack)
+		return (NULL);
+	max = LONG_MIN;
+	while (stack)
 	{
-		if (max->nbr < node->nbr)
-			max = node;
-		node = node->next;
+		if (stack->nbr > max)
+		{
+			max = stack->nbr;
+			max_node = stack;
+		}
+		stack = stack->next;
 	}
-	return (max);
+	return (max_node);
 }

@@ -6,12 +6,11 @@
 /*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 15:32:30 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/06/20 18:14:31 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/06/21 16:51:52 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-// Swap: trocar os dois primeiros elementos do topo da pilha
 
 void	swap(t_stack_node **stack)
 {
@@ -38,14 +37,14 @@ void	sa(t_stack_node **a)
 	if (stack_len(*a) < 2)
 		return ;
 	swap(a);
-	write(1, "sa\n", 4);
+	write(1, "sa\n", 3);
 }
 void	sb(t_stack_node **b)
 {
 	if (stack_len(*b) < 2)
 		return ;
 	swap(b);
-	write(1, "sb\n", 4);
+	write(1, "sb\n", 3);
 }
 void	ss(t_stack_node **a, t_stack_node **b)
 {
@@ -53,5 +52,5 @@ void	ss(t_stack_node **a, t_stack_node **b)
 		return ;
 	swap(a);
 	swap(b);
-	write(1, "ss\n", 4);
+	write(1, "ss\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 17:41:03 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/06/20 18:11:15 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/06/21 15:01:29 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	pa(t_stack_node **a, t_stack_node **b)
 	if(!*b)
 		return ;
 	push(a, b);
-	write(1, "pa\n", 4);
+	write(1, "pa\n", 3);
 }
 
 void	pb(t_stack_node **b, t_stack_node **a)
@@ -41,5 +41,5 @@ void	pb(t_stack_node **b, t_stack_node **a)
 	if(!*a)
 		return ;
 	push(b, a);
-	write(1, "pb\n", 4);
+	write(1, "pb\n", 3);
 }

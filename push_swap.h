@@ -6,7 +6,7 @@
 /*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 16:02:15 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/06/20 18:42:27 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/06/22 18:33:59 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,34 +39,47 @@ void	ra(t_stack_node **a);
 void	rb(t_stack_node **b);
 void	rr(t_stack_node **a, t_stack_node **b);
 void	rra(t_stack_node **a);
+void	rrb(t_stack_node **b);
 void	rrr(t_stack_node **a, t_stack_node **b);
 void	pa(t_stack_node **a, t_stack_node **b);
 void	pb(t_stack_node **b, t_stack_node **a);
 
 
 //Algorithm
-void	sort_three(t_stack_node **a);
+void			sort_three(t_stack_node **a);
+void			sort_four(t_stack_node **a, t_stack_node **b);
+void			sort_five(t_stack_node **a, t_stack_node **b);
 
 //Utils
 bool			sorted(t_stack_node *stack);
 int				stack_len(t_stack_node *stack);
 t_stack_node	*find_last(t_stack_node *stack);
-t_stack_node	*find_max(t_stack_node **stack);
-t_stack_node	*find_min(t_stack_node **stack);
+t_stack_node	*find_max(t_stack_node *stack);
+t_stack_node	*find_min(t_stack_node *stack);
 
 //Handle Errors
-void	error(t_stack_node **stack);
-void	free_stack(t_stack_node **stack);
-int		duplicate_check(t_stack_node *stack, int n);
-int		syntax_error(char *nbr);
+void			error(t_stack_node **stack);
+void			free_stack(t_stack_node **stack);
+int				duplicate_check(t_stack_node *stack, int n);
+int				syntax_error(char *nbr);
+
+//Node inicialzation
+void			init_node_a(t_stack_node *a, t_stack_node *b);
+void			init_node_b(t_stack_node *a, t_stack_node *b);
+void			set_cheapest(t_stack_node *stack);
+void			current_index(t_stack_node *stack);
+
+//Init Stack
+void			init_stack_a(t_stack_node **a, char **argv);
+t_stack_node	*get_cheapest(t_stack_node *stack);
+void			move_to_top(t_stack_node **stack, t_stack_node *node_for_top, char stack_name);
+
+//Sort
+void			sort_stacks(t_stack_node **a, t_stack_node **b);
 
 //Others
-char	**ft_split(char *string, char character);
-long	ft_atol(char *str);
-
-
-void	init_stack_a (t_stack_node **a, char **argv);
-void	append_node(t_stack_node **stack, int n);
+char			**ft_split(char *string, char character);
+long			ft_atol(char *str);
 
 t_stack_node	*find_last(t_stack_node *stack);
 #endif
