@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: aaugusto <<aaugusto@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 18:04:21 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/06/22 18:30:50 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/07/04 17:32:03 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ int	stack_len(t_stack_node *stack)
 {
 	int				len;
 	t_stack_node	*node;
-	
+
 	len = 0;
 	node = stack;
-	while(node)
+	while (node)
 	{
 		len++;
 		node = node->next;
@@ -44,7 +44,7 @@ t_stack_node	*find_last(t_stack_node *stack)
 {
 	if (!stack)
 		return (NULL);
-	while(stack->next)
+	while (stack->next)
 		stack = stack->next;
 	return (stack);
 }
@@ -53,7 +53,7 @@ t_stack_node	*find_min(t_stack_node *stack)
 {
 	long			min;
 	t_stack_node	*min_node;
-	
+
 	if (!stack)
 		return (NULL);
 	min = LONG_MAX;

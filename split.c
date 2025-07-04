@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                            :+:      :+:    :+:   */
+/*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: aaugusto <<aaugusto@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 16:40:21 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/06/09 18:15:40 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/07/04 18:22:45 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,75 +14,78 @@
 
 static int	count_words(char *s, char c)
 {
-	int count;
-	bool inside_word;
+	int		count;
+	bool	inside_word;
 
 	count = 0;
+	inside_word = false;
 	while (*s)
 	{
-		inside_word = false;
-		while (*s == c)
-			++s;
-		while (*s != c && *s)
+		if (*s != c && !inside_word)
 		{
-			if (!inside_word)
-			{
-				++count;
-				inside_word = true;
-			}
-			++s;
+			inside_word = true;
+			count++;
 		}
+		else if (*s == c)
+			inside_word = false;
+		s++;
 	}
 	return (count);
 }
 
-static char	*get_next_word(char *s, char c)
+static char	*extract_word(char *s, char c, int *start)
 {
-	static int cursor = 0;
-	char *next_word;
-	int len;
-	int i;
+	char	*word;
+	int		len;
+	int		i;
 
+	while (s[*start] == c)
+		(*start)++;
 	len = 0;
-	i = 0;
-	while (s[cursor] == c)
-		++cursor;
-	while ((s[cursor + len] != c) && s[cursor + len])
-		++len;
-	next_word = malloc((size_t)len * sizeof(char) + 1);
-	if (!next_word)
+	while (s[*start + len] && s[*start + len] != c)
+		len++;
+	word = malloc(len + 1);
+	if (!word)
 		return (NULL);
-	while ((s[cursor] != c) && s[cursor])
-		next_word[i++] = s[cursor++];
-	next_word[i] = '\0';
-	return (next_word);
+	i = 0;
+	while (i < len)
+	{
+		word[i] = s[*start + i];
+		i++;
+	}
+	word[i] = '\0';
+	*start += len;
+	return (word);
 }
 
 char	**ft_split(char *s, char c)
 {
-	int words_count;
-	char **result_array;
-	int i;
+	int		words_count;
+	char	**result;
+	int		i;
+	int		start;
 
-	i = 0;
+	if (!s)
+		return (NULL);
 	words_count = count_words(s, c);
 	if (!words_count)
 		exit(1);
-	result_array = malloc(sizeof(char *) * (size_t)(words_count + 2));
-	if (!result_array)
+	result = malloc(sizeof(char *) * (words_count + 2));
+	if (!result)
 		return (NULL);
-	while (words_count-- >= 0)
+	result[0] = malloc(1);
+	if (!result[0])
+		return (NULL);
+	result[0][0] = '\0';
+	start = 0;
+	i = 1;
+	while (i <= words_count)
 	{
-		if (i == 0)
-		{
-			result_array[i] = malloc(sizeof(char));
-			if (!result_array[i])
-				return (NULL);
-			result_array[i++][0] = '\0';
-			continue;
-		}
-		result_array[i++] = get_next_word(s, c);
+		result[i] = extract_word(s, c, &start);
+		if (!result[i])
+			return (NULL);
+		i++;
 	}
-	result_array[i] = NULL;
-	return (result_array);
+	result[i] = NULL;
+	return (result);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: aaugusto <<aaugusto@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 17:41:03 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/06/21 15:01:29 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/07/04 17:34:28 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	push(t_stack_node	**dest, t_stack_node **src)
 {
 	t_stack_node	*node_to_push;
+
 	if (!*src)
 		return ;
 	node_to_push = *src;
@@ -30,16 +31,16 @@ void	push(t_stack_node	**dest, t_stack_node **src)
 
 void	pa(t_stack_node **a, t_stack_node **b)
 {
-	if(!*b)
+	if (!*b)
 		return ;
-	push(a, b);
-	write(1, "pa\n", 3);
+	push (a, b);
+	write (1, "pa\n", 3);
 }
 
 void	pb(t_stack_node **b, t_stack_node **a)
 {
-	if(!*a)
+	if (!*a)
 		return ;
-	push(b, a);
-	write(1, "pb\n", 3);
+	push (b, a);
+	write (1, "pb\n", 3);
 }

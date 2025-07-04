@@ -3,28 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: aaugusto <<aaugusto@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 15:56:18 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/06/22 17:14:06 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/07/04 18:00:01 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	append_node(t_stack_node **stack, int n)//quero anexar um node no fim da stack
+void	append_node(t_stack_node **stack, int n)
 {
 	t_stack_node	*node;
 	t_stack_node	*last_node;
-	
-	if(!stack)
+
+	if (!stack)
 		return ;
 	node = malloc(sizeof(t_stack_node));
-	if(!node)
+	if (!node)
 		return ;
 	node->next = NULL;
 	node->nbr = n;
-	if(!(*stack))
+	if (!(*stack))
 	{
 		*stack = node;
 		node->prev = NULL;
@@ -39,7 +39,7 @@ void	append_node(t_stack_node **stack, int n)//quero anexar um node no fim da st
 
 void	init_stack_a(t_stack_node **a, char **argv)
 {
-	long	n;//aparentemente so 'e assim por causa de um bit a mais nos limites do int
+	long	n;
 	int		i;
 
 	i = 0;
@@ -54,7 +54,8 @@ void	init_stack_a(t_stack_node **a, char **argv)
 			error (a);
 		append_node(a, (int)n);
 		i++;
-	}	
+	}
+	current_index(*a);
 }
 
 t_stack_node	*get_cheapest(t_stack_node *stack)
@@ -70,7 +71,8 @@ t_stack_node	*get_cheapest(t_stack_node *stack)
 	return (NULL);
 }
 
-void	move_to_top(t_stack_node **stack, t_stack_node *node_for_top, char stack_name)
+void	move_to_top(t_stack_node **stack, t_stack_node *node_for_top,
+													char stack_name)
 {
 	while (*stack != node_for_top)
 	{

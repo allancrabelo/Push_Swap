@@ -3,30 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: aaugusto <<aaugusto@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 16:18:45 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/06/22 17:16:41 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/07/04 18:02:19 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-int	main(int argc, char **argv)
+void	parser(t_stack_node *a, t_stack_node *b)
 {
- 	t_stack_node	*a;// pilha original que sera ordenada
-	t_stack_node	*b;// pilha incial vazia
-	
-	a = NULL;// zero as pilhas
-	b = NULL;
-
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		return (1);
-	else if (argc == 2) 
-		argv = ft_split(argv[1], ' ');
-	init_stack_a(&a, argv + 1);
-	if(!sorted(a))
+	if (!sorted(a))
 	{
 		if (stack_len(a) == 2)
 			sa(&a);
@@ -39,5 +28,23 @@ int	main(int argc, char **argv)
 		else
 			sort_stacks(&a, &b);
 	}
+}
+
+int	main(int argc, char **argv)
+{
+	t_stack_node	*a;
+	t_stack_node	*b;
+
+	a = NULL;
+	b = NULL;
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
+		return (1);
+	else if (argc == 2)
+		argv = ft_split(argv[1], ' ');
+	init_stack_a(&a, argv + 1);
+	parser(a, b);
+	free_stack(&a);
+	if (argc == 2)
+		free_argv(argv);
 	return (0);
 }

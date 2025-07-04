@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: aaugusto <<aaugusto@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 16:57:29 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/06/20 18:14:01 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/07/04 17:37:59 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,29 +24,31 @@ void	rev_rotate(t_stack_node **stack)
 	before_last->next = NULL;
 	last->next = *stack;
 	(*stack)->prev = last;
-
 	last->prev = NULL;
 	*stack = last;
 }
+
 void	rra(t_stack_node **a)
 {
 	if (stack_len(*a) < 2)
-		return;
-	rev_rotate(a);
-	write(1, "rra\n", 5);
+		return ;
+	rev_rotate (a);
+	write (1, "rra\n", 4);
 }
+
 void	rrb(t_stack_node **b)
 {
 	if (stack_len(*b) < 2)
 		return ;
-	rev_rotate(b);
-	write(1, "rrb\n", 5);
+	rev_rotate (b);
+	write (1, "rrb\n", 4);
 }
+
 void	rrr(t_stack_node **a, t_stack_node **b)
 {
 	if (stack_len(*a) < 2 && stack_len(*b) < 2)
 		return ;
-	rev_rotate(a);
-	rev_rotate(b);
-	write(1, "rrr\n", 5);
+	rev_rotate (a);
+	rev_rotate (b);
+	write (1, "rrr\n", 4);
 }

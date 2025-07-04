@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ready_b.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: aaugusto <<aaugusto@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 16:11:19 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/06/22 17:17:05 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/07/04 17:32:31 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	set_target_b(t_stack_node *a, t_stack_node *b)
 	t_stack_node	*current_a;
 	t_stack_node	*target_node;
 	long			closest_biggest;
-	
+
 	while (b)
 	{
 		closest_biggest = LONG_MAX;
@@ -40,7 +40,7 @@ static void	set_target_b(t_stack_node *a, t_stack_node *b)
 	}
 }
 
-void	init_node_b(t_stack_node *a, t_stack_node *b)
+void	init_nodes_b(t_stack_node *a, t_stack_node *b)
 {
 	current_index(a);
 	current_index(b);

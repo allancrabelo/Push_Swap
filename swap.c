@@ -6,7 +6,7 @@
 /*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 15:32:30 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/06/21 16:51:52 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/06/25 16:51:16 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	swap(t_stack_node **stack)
 
 	if (!*stack || !(*stack)->next)
 		return ;
-	
 	first = *stack;
 	second = first->next;
 	first->next = second->next;
@@ -28,7 +27,6 @@ void	swap(t_stack_node **stack)
 	second->next = first;
 	second->prev = NULL;
 	first->prev = second;
-
 	*stack = second;
 }
 
@@ -39,6 +37,7 @@ void	sa(t_stack_node **a)
 	swap(a);
 	write(1, "sa\n", 3);
 }
+
 void	sb(t_stack_node **b)
 {
 	if (stack_len(*b) < 2)
@@ -46,9 +45,10 @@ void	sb(t_stack_node **b)
 	swap(b);
 	write(1, "sb\n", 3);
 }
+
 void	ss(t_stack_node **a, t_stack_node **b)
 {
-	if (stack_len(*a) < 2 && stack_len(*b) < 2)
+	if (stack_len(*a) < 2 || stack_len(*b) < 2)
 		return ;
 	swap(a);
 	swap(b);

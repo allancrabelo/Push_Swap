@@ -65,22 +65,33 @@ static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
 {
 	int	len_a;
 	int	len_b;
+	int	a_cost;
+	int	b_cost;
 
 	len_a = stack_len(a);
 	len_b = stack_len(b);
 	
-	while (a) //Loopa a stack a
+	while (a)
 	{
-		a->push_cost = a->index; //O custo comeca por ser o index do node (valor para rodar este para o topo da stack)
-		if (!(a->above_median)) //Verifica se o node esta abaixo do meio da stack
-			a->push_cost = len_a - (a->index); //Se estiver, muda-se o push cost para o tamanho da stack a menos o index (porque vai ser com rra)
-		if (a->target->above_median) //Verifica se o target de a esta acima do meio da stack
-			a->push_cost += a->target->index; //Se sim, adiciona o index do target ao push cost
+		a_cost = a->index;
+		if (!(a->above_median))
+			a_cost = len_a - a->index;
+
+		b_cost = a->target->index;
+		if (!(a->target->above_median))
+			b_cost = len_b - a->target->index;
+
+		if ((a->above_median && a->target->above_median))
+			a->push_cost = ft_max(a_cost, b_cost); //rr
+		else if (!(a->above_median) && !(a->target->above_median))
+			a->push_cost = ft_max(a_cost, b_cost); //rrr
 		else
-			a->push_cost += len_b - (a->target->index); //Se nao, adiciona ao push cost a len de b menos o index do target de a 
+			a->push_cost = a_cost + b_cost; //separadas
+
 		a = a->next;
 	}
 }
+
 
 void	set_cheapest(t_stack_node *stack)
 {

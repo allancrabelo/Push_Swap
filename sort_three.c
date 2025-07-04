@@ -6,7 +6,7 @@
 /*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 18:31:48 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/06/22 18:34:19 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/07/03 17:28:12 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ void	sort_three(t_stack_node **a)
 {
 	t_stack_node	*biggest_node;
 
-	biggest_node = find_max(a);
-
+	biggest_node = find_max(*a);
 	if (biggest_node == *a)
 		ra(a);
 	else if ((*a)->next == biggest_node)
