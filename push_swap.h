@@ -6,7 +6,7 @@
 /*   By: aaugusto <<aaugusto@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 16:02:15 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/07/04 18:33:19 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/07/06 15:48:17 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,9 @@ void			move_to_top(t_stack_node **stack,
 
 //Sort
 void			sort_stacks(t_stack_node **a, t_stack_node **b);
+void			rev_rotate_both(t_stack_node **a,
+					t_stack_node **b,
+					t_stack_node *cheapest_node);
 
 //Others
 char			**ft_split(char *string, char character);

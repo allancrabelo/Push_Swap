@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 PUSHSWAP="./push_swap"
-CHECKER="./checker_MAC"
+CHECKER="./checker_linux"
 
 VAR1=${1:-100}    # Default: 100 numbers
 VAR2=${2:-10}     # Default: 10 iterations

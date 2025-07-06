@@ -6,7 +6,7 @@
 /*   By: aaugusto <<aaugusto@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 16:40:21 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/07/04 18:22:45 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/07/06 15:55:31 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,20 @@ static char	*extract_word(char *s, char c, int *start)
 	return (word);
 }
 
+static char	**alloc_result(int words_count)
+{
+	char	**result;
+
+	result = malloc(sizeof(char *) * (words_count + 2));
+	if (!result)
+		return (NULL);
+	result[0] = malloc(1);
+	if (!result[0])
+		return (NULL);
+	result[0][0] = '\0';
+	return (result);
+}
+
 char	**ft_split(char *s, char c)
 {
 	int		words_count;
@@ -70,13 +84,9 @@ char	**ft_split(char *s, char c)
 	words_count = count_words(s, c);
 	if (!words_count)
 		exit(1);
-	result = malloc(sizeof(char *) * (words_count + 2));
+	result = alloc_result(words_count);
 	if (!result)
 		return (NULL);
-	result[0] = malloc(1);
-	if (!result[0])
-		return (NULL);
-	result[0][0] = '\0';
 	start = 0;
 	i = 1;
 	while (i <= words_count)
