@@ -6,7 +6,7 @@
 /*   By: aaugusto <<aaugusto@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 16:31:59 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/07/04 18:25:46 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/07/10 17:27:33 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,21 @@ int	duplicate_check(t_stack_node *stack, int n)
 
 void	free_stack(t_stack_node **stack)
 {
-	t_stack_node	*temp;
+	t_stack_node	*current;
+	t_stack_node	*next;
 
-	if (!stack || !(*stack))
+	if (!stack | !*stack)
 		return ;
-	while (*stack)
+	current = *stack;
+	while (current->prev)
+		current = current->prev;
+	while (current)
 	{
-		temp = (*stack)->next;
-		free (*stack);
-		*stack = temp;
+		next = current->next;
+		free(current);
+		current = next;
 	}
+	*stack = NULL;
 }
 
 void	free_argv(char **argv)
@@ -68,9 +73,11 @@ void	free_argv(char **argv)
 	free(argv);
 }
 
-void	error(t_stack_node **stack)
+void	error(t_stack_node **stack, char **argv, int is_split)
 {
 	free_stack(stack);
+	if (is_split)
+		free_argv(argv);
 	write (1, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }

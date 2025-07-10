@@ -6,7 +6,7 @@
 /*   By: aaugusto <<aaugusto@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 16:18:45 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/07/04 18:02:19 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/07/10 17:24:10 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,27 @@ int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
 	t_stack_node	*b;
+	char			**split;
+	char			**args;
+	int				is_split;
 
 	a = NULL;
 	b = NULL;
+	split = NULL;
+	is_split = 0;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
-	else if (argc == 2)
-		argv = ft_split(argv[1], ' ');
-	init_stack_a(&a, argv + 1);
+	if (argc == 2)
+	{
+		split = ft_split(argv[1], ' ');
+		args = split;
+		is_split = 1;
+	}
+	else
+		args = argv + 1;
+	init_stack_a(&a, args, is_split);
 	parser(a, b);
 	free_stack(&a);
-	if (argc == 2)
-		free_argv(argv);
-	return (0);
+	if (split)
+		free_argv(split);
 }

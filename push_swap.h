@@ -6,7 +6,7 @@
 /*   By: aaugusto <<aaugusto@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 16:02:15 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/07/06 15:48:17 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/07/10 17:27:16 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_stack_node	*find_min(t_stack_node *stack);
 int				ft_max(int a, int b);
 
 //Handle Errors
-void			error(t_stack_node **stack);
+void			error(t_stack_node **stack, char **argv, int is_split);
 void			free_stack(t_stack_node **stack);
 int				duplicate_check(t_stack_node *stack, int n);
 int				syntax_error(char *nbr);
@@ -71,7 +71,7 @@ void			set_cheapest(t_stack_node *stack);
 void			current_index(t_stack_node *stack);
 
 //Init Stack
-void			init_stack_a(t_stack_node **a, char **argv);
+void			init_stack_a(t_stack_node **a, char **argv, int is_split);
 t_stack_node	*get_cheapest(t_stack_node *stack);
 void			move_to_top(t_stack_node **stack,
 					t_stack_node *node_for_top,
@@ -86,7 +86,6 @@ void			rev_rotate_both(t_stack_node **a,
 //Others
 char			**ft_split(char *string, char character);
 long			ft_atol(char *str);
-
 t_stack_node	*find_last(t_stack_node *stack);
 
 #endif
