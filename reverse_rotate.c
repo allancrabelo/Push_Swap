@@ -6,7 +6,7 @@
 /*   By: aaugusto <<aaugusto@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 16:57:29 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/07/04 17:37:59 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/07/11 10:12:03 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,27 +28,30 @@ void	rev_rotate(t_stack_node **stack)
 	*stack = last;
 }
 
-void	rra(t_stack_node **a)
+void	rra(t_stack_node **a, int print)
 {
 	if (stack_len(*a) < 2)
 		return ;
 	rev_rotate (a);
-	write (1, "rra\n", 4);
+	if (print)
+		write (1, "rra\n", 4);
 }
 
-void	rrb(t_stack_node **b)
+void	rrb(t_stack_node **b, int print)
 {
 	if (stack_len(*b) < 2)
 		return ;
 	rev_rotate (b);
-	write (1, "rrb\n", 4);
+	if (print)
+		write (1, "rrb\n", 4);
 }
 
-void	rrr(t_stack_node **a, t_stack_node **b)
+void	rrr(t_stack_node **a, t_stack_node **b, int print)
 {
 	if (stack_len(*a) < 2 && stack_len(*b) < 2)
 		return ;
 	rev_rotate (a);
 	rev_rotate (b);
-	write (1, "rrr\n", 4);
+	if (print)
+		write (1, "rrr\n", 4);
 }

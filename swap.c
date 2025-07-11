@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: aaugusto <<aaugusto@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 15:32:30 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/06/25 16:51:16 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/07/11 10:12:37 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,27 +30,30 @@ void	swap(t_stack_node **stack)
 	*stack = second;
 }
 
-void	sa(t_stack_node **a)
+void	sa(t_stack_node **a, int print)
 {
 	if (stack_len(*a) < 2)
 		return ;
 	swap(a);
-	write(1, "sa\n", 3);
+	if (print)
+		write(1, "sa\n", 3);
 }
 
-void	sb(t_stack_node **b)
+void	sb(t_stack_node **b, int print)
 {
 	if (stack_len(*b) < 2)
 		return ;
 	swap(b);
-	write(1, "sb\n", 3);
+	if (print)
+		write(1, "sb\n", 3);
 }
 
-void	ss(t_stack_node **a, t_stack_node **b)
+void	ss(t_stack_node **a, t_stack_node **b, int print)
 {
 	if (stack_len(*a) < 2 || stack_len(*b) < 2)
 		return ;
 	swap(a);
 	swap(b);
-	write(1, "ss\n", 3);
+	if (print)
+		write(1, "ss\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: aaugusto <<aaugusto@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 16:40:21 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/07/10 16:51:17 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/07/11 16:43:23 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,15 @@ static char	*extract_word(char *s, char c, int *start)
 	int		len;
 	int		i;
 
+	len = 0;
+	i = 0;
 	while (s[*start] == c)
 		(*start)++;
-	len = 0;
 	while (s[*start + len] && s[*start + len] != c)
 		len++;
 	word = malloc(len + 1);
 	if (!word)
 		return (NULL);
-	i = 0;
 	while (i < len)
 	{
 		word[i] = s[*start + i];
@@ -58,44 +58,41 @@ static char	*extract_word(char *s, char c, int *start)
 	return (word);
 }
 
-static char	**alloc_result(int words_count)
+static char	**alloc_and_fill_split(char *s, char c, int words_count)
 {
 	char	**result;
+	int		i;
+	int		start;
 
-	result = malloc(sizeof(char *) * (words_count + 2));
+	i = 0;
+	start = 0;
+	result = malloc(sizeof(char *) * (words_count + 1));
 	if (!result)
 		return (NULL);
-	result[0] = malloc(1);
-	if (!result[0])
-		return (NULL);
-	result[0][0] = '\0';
+	while (i < words_count)
+	{
+		result[i] = extract_word(s, c, &start);
+		if (!result[i])
+		{
+			while (i > 0)
+				free(result[--i]);
+			free(result);
+			return (NULL);
+		}
+		i++;
+	}
+	result[i] = NULL;
 	return (result);
 }
 
 char	**ft_split(char *s, char c)
 {
 	int		words_count;
-	char	**result;
-	int		i;
-	int		start;
 
 	if (!s)
 		return (NULL);
 	words_count = count_words(s, c);
-	if (!words_count)
-		exit(1);
-	result = alloc_result(words_count);
-	if (!result)
+	if (words_count == 0)
 		return (NULL);
-	start = 0;
-	i = 1;
-	while (i <= words_count)
-	{
-		result[i] = extract_word(s, c, &start);
-		if (!result[i])
-			return (NULL);
-		i++;
-	}
-	result[i] = NULL;
-	return (result);
+	return (alloc_and_fill_split(s, c, words_count));
 }

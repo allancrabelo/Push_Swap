@@ -6,7 +6,7 @@
 /*   By: aaugusto <<aaugusto@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 16:02:15 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/07/10 17:27:16 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/07/11 10:13:57 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,17 @@ typedef struct s_stack_node
 }	t_stack_node;
 
 //Moviments
-void			sa(t_stack_node **a);
-void			sb(t_stack_node **b);
-void			ss(t_stack_node **a, t_stack_node **b);
-void			ra(t_stack_node **a);
-void			rb(t_stack_node **b);
-void			rr(t_stack_node **a, t_stack_node **b);
-void			rra(t_stack_node **a);
-void			rrb(t_stack_node **b);
-void			rrr(t_stack_node **a, t_stack_node **b);
-void			pa(t_stack_node **a, t_stack_node **b);
-void			pb(t_stack_node **b, t_stack_node **a);
+void			sa(t_stack_node **a, int print);
+void			sb(t_stack_node **b, int print);
+void			ss(t_stack_node **a, t_stack_node **b, int print);
+void			ra(t_stack_node **a, int print);
+void			rb(t_stack_node **b, int print);
+void			rr(t_stack_node **a, t_stack_node **b, int print);
+void			rra(t_stack_node **a, int print);
+void			rrb(t_stack_node **b, int print);
+void			rrr(t_stack_node **a, t_stack_node **b, int print);
+void			pa(t_stack_node **a, t_stack_node **b, int print);
+void			pb(t_stack_node **b, t_stack_node **a, int print);
 
 //Algorithm
 void			sort_three(t_stack_node **a);

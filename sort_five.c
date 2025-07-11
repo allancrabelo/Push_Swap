@@ -6,7 +6,7 @@
 /*   By: aaugusto <<aaugusto@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 15:27:45 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/07/04 18:13:10 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/07/11 10:17:41 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ void	rotate_to_min(t_stack_node **stack)
 	if (pos <= len / 2)
 	{
 		while (pos--)
-			ra(stack);
+			ra(stack, 1);
 	}
 	else
 	{
 		pos = len - pos;
 		while (pos--)
-			rra(stack);
+			rra(stack, 1);
 	}
 }
 
@@ -61,14 +61,14 @@ void	sort_five(t_stack_node **a, t_stack_node **b)
 	if (!a || !*a)
 		return ;
 	rotate_to_min(a);
-	pb(b, a);
+	pb(b, a, 1);
 	rotate_to_min(a);
-	pb(b, a);
+	pb(b, a, 1);
 	sort_three(a);
-	pa(a, b);
+	pa(a, b, 1);
 	if ((*a)->nbr > (*a)->next->nbr)
-		sa(a);
-	pa(a, b);
+		sa(a, 1);
+	pa(a, b, 1);
 	if ((*a)->nbr > (*a)->next->nbr)
-		sa(a);
+		sa(a, 1);
 }

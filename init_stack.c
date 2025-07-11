@@ -6,7 +6,7 @@
 /*   By: aaugusto <<aaugusto@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 15:56:18 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/07/10 17:09:29 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/07/11 10:15:52 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,16 +79,16 @@ void	move_to_top(t_stack_node **stack, t_stack_node *node_for_top,
 		if (stack_name == 'a')
 		{
 			if (node_for_top->above_median)
-				ra(stack);
+				ra(stack, 1);
 			else
-				rra(stack);
+				rra(stack, 1);
 		}
 		else if (stack_name == 'b')
 		{
 			if (node_for_top->above_median)
-				rb(stack);
+				rb(stack, 1);
 			else
-				rrb(stack);
+				rrb(stack, 1);
 		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: aaugusto <<aaugusto@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 16:31:59 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/07/10 17:27:33 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/07/11 09:49:26 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,6 @@ void	error(t_stack_node **stack, char **argv, int is_split)
 	free_stack(stack);
 	if (is_split)
 		free_argv(argv);
-	write (1, "Error\n", 6);
+	write (2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
