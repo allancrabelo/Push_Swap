@@ -6,7 +6,7 @@
 /*   By: aaugusto <<aaugusto@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 15:56:18 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/07/11 10:15:52 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/07/11 17:22:21 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void	init_stack_a(t_stack_node **a, char **argv, int is_split)
 	int		i;
 
 	i = 0;
+	if (!argv)
+		return ;
 	while (argv[i])
 	{
 		if (syntax_error(argv[i]))

@@ -6,12 +6,11 @@
 /*   By: aaugusto <<aaugusto@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 16:18:45 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/07/11 16:14:31 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/07/11 17:20:06 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 static void	parser(t_stack_node *a, t_stack_node *b)
 {

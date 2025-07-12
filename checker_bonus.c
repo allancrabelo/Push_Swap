@@ -6,7 +6,7 @@
 /*   By: aaugusto <<aaugusto@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 10:19:57 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/07/11 10:45:02 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/07/12 14:55:41 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	command(t_stack_node *a, t_stack_node *b, char *str)
 		return (pa(&a, &b, 0));
 	if (str[0] == 'p' && str[1] == 'b' && str[2] == '\n')
 		return (pb(&a, &b, 0));
-	write(2, "Error", 1);
+	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
 
@@ -59,6 +59,7 @@ static void	parser(t_stack_node *a, t_stack_node *b)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
+	get_next_line(-1);
 }
 
 int	main(int argc, char **argv)

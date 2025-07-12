@@ -6,7 +6,7 @@
 /*   By: aaugusto <<aaugusto@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 16:02:15 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/07/11 10:13:57 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/07/11 17:18:57 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include <limits.h>
+
+# include <stdio.h>
 
 typedef struct s_stack_node
 {

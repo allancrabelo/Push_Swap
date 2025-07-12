@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaugusto <aaugusto@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: aaugusto <<aaugusto@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 15:53:49 by aaugusto          #+#    #+#             */
-/*   Updated: 2025/05/14 15:51:19 by aaugusto         ###   ########.fr       */
+/*   Updated: 2025/07/11 18:14:45 by aaugusto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
